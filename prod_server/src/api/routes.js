@@ -16,8 +16,8 @@ router.get('/game/*', function(req, res) {
 });
 
 /* 404 handler */
-// router.get('*', function(req, res){        
-//     res.sendFile('404.html', { root: path.join(__dirname, '../templates/') });
-// });
+router.get('*', function(req, res){        
+    res.sendFile('404.html', { root: path.join(__dirname, '../templates/') });
+});
 
 module.exports = router;
