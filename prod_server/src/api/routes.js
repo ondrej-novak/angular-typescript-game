@@ -12,4 +12,10 @@ router.get('/status', (req, res) => res.send('OK'));
 router.get('/game/', function(req, res) {    
     res.sendFile(path.join(__dirname + '../../../build/index.html'));
 });
+
+/* 404 handler */
+router.get('*', function(req, res){   
+    res.sendFile(path.join(__dirname + '../template/404.html'));
+});
+
 module.exports = router;
