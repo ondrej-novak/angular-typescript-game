@@ -14,9 +14,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Run a production server on `http://localhost:3000/` and access the geme on `http://localhost:3000/game`
+## Production server 
+Running production server on `http://localhost:3000/` and access the geme on `http://localhost:3000/game`
 
-Change directory to `./prod_server` and run `npm start`
+Run `ng build`, then change directory to `./prod_server` and run `npm start`
 
 ## Further help
 
