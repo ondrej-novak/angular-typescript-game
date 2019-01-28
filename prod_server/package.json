@@ -12,10 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/FSInteractive/coinrobik.git"
+    "url": "https://github.com/ondrej-novak/angular-typescript-game.git"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=production pm2 start ./src/index.js",
+    "start": "NODE_ENV=production node ./src/index.js",
+    "startpm": "cross-env NODE_ENV=production pm2 start ./src/index.js",
     "dev": "nodemon ./src/index.js",
     "lint": "eslint ./src/ --ignore-path .gitignore --ignore-pattern internals/scripts",
     "lint:fix": "yarn lint --fix",

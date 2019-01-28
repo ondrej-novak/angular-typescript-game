@@ -1,7 +1,6 @@
 const express = require('express');
-const path = require('path');
-
 const router = express.Router();
+const path = require('path');
 
 /**
  * GET /status
@@ -9,13 +8,16 @@ const router = express.Router();
 router.get('/status', (req, res) => res.send('OK'));
 
 /* GET geme main page. */
-router.get('/game/', function(req, res) {    
-    res.sendFile(path.join(__dirname + '../../../build/index.html'));
+router.get('/game', function(req, res) {       
+    res.sendFile('index.html', { root: path.join(__dirname, '../../dist/') });
+});
+router.get('/game/*', function(req, res) {       
+    res.sendFile('index.html', { root: path.join(__dirname, '../../dist/') });
 });
 
 /* 404 handler */
-router.get('*', function(req, res){   
-    res.sendFile(path.join(__dirname + '../template/404.html'));
-});
+// router.get('*', function(req, res){        
+//     res.sendFile('404.html', { root: path.join(__dirname, '../templates/') });
+// });
 
 module.exports = router;
