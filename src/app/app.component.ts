@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TodoDataService } from './services/todo-data.service';
-import { Todo } from './services/todo';
+import { TodoService } from './services/todo.service';
+import { TodoItem } from './models/ToDoItem';
 
 @Component({
   selector: 'app-root',
@@ -9,26 +9,35 @@ import { Todo } from './services/todo';
 })
 export class AppComponent {
   
-  constructor(private todoDataService: TodoDataService) {
+  constructor(private todoService: TodoService) {
   }
 
-  newTodo: Todo = new Todo();
-
-  toggleTodoComplete(todo) {
-    this.todoDataService.toggleTodoComplete(todo);
-  }
-
+  newTodo: TodoItem = {} as TodoItem;
+  checkAll: boolean = false;
+  
   addTodo() {
-    this.todoDataService.addTodo(this.newTodo);
-    this.newTodo = new Todo();
+    if (this.newTodo && this.newTodo.title && this.newTodo.title.length > 0)
+    {
+      this.todoService.add(this.newTodo);
+      this.newTodo = {} as TodoItem;
+    }    
   }
 
   removeTodo(todo) {
-    this.todoDataService.deleteTodoById(todo.id);
+    this.todoService.delete(todo.id);
+  }
+
+  toggleTodoComplete(todo) {
+    this.todoService.toggleTodoComplete(todo);
+  }
+
+  setAllComplete(checked: boolean){
+    this.checkAll = !this.checkAll;
+    this.todoService.toggleAllTodoComplete(this.checkAll);
   }
 
   get todos() {
-    return this.todoDataService.getAllTodos();
+    return this.todoService.getAll();
   }
   
 }

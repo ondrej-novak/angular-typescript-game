@@ -1,0 +1,47 @@
+.todo-list {
+    margin-top: 10px;
+    
+    li {
+        padding: 10px 20px 10px 0;
+        position: relative;
+        font-size: 20px;
+        line-height: 1em;
+        border-bottom: 1px solid #cccccc;
+
+        &:after {
+            content: "\0020";
+            display: block;
+            height: 0;
+            clear: both;
+            overflow: hidden;
+            visibility: hidden;
+        }
+
+        &.completed {
+            text-decoration: line-through;
+	        color: #777777;
+        }
+
+        &:hover .todo-destroy {
+            display: block;
+        }
+
+        .todo-destroy {
+            position: absolute;
+            right: 5px;
+            top: 14px;
+            display: none;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            color: #777777;
+            border: 1px solid #cccccc;
+            
+            &:hover {
+                color: black;
+                border: 1px solid black;
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoDataService } from './services/todo-data.service';
+import { TodoService } from './services/todo.service';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { TodoDataService } from './services/todo-data.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [TodoDataService],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
